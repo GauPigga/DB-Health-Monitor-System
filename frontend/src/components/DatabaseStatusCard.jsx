@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import url from "../../url";
 export default function DatabaseStatusCard() {
   const [status, setStatus] = useState(null);
   const [uptime, setUptime] = useState(null);
@@ -9,7 +9,7 @@ export default function DatabaseStatusCard() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/db-status")
+    fetch(`${url}/api/db-status`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch DB status");
         return res.json();

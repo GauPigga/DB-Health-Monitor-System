@@ -1,5 +1,5 @@
 import React from 'react';
-
+import url from "../../url";
 export default function DataTable({ columns, data }) {
   return (
     <div className="overflow-x-auto rounded-lg border border-gray-700">

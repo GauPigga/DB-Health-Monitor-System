@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import url from "../../url";
 
 ChartJS.register(
   CategoryScale,
@@ -47,7 +48,7 @@ export default function QueryPerformanceChart() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/sql-performance-trends")
+    fetch(`${url}/api/sql-performance-trends`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch query performance data");
         return res.json();

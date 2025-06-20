@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import url from "../../url";
 
 export default function SessionsOverviewCard() {
   const [sessions, setSessions] = useState({
@@ -10,7 +11,7 @@ export default function SessionsOverviewCard() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/sessions")
+    fetch(`${url}/api/sessions`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch sessions data");
         return res.json();

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionHeader from "./SectionHeader";
 import DataTable from "./DataTable";
 import { exportToCSV } from "../utils/exportCsv";
+import url from "../../url";
 
 // ✅ Define the columns
 const userActivityColumns = [
@@ -17,7 +18,7 @@ export default function UserActivityTable() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/user-activity")
+    fetch(`${url}/api/user-activity`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch user activity");
         return res.json();

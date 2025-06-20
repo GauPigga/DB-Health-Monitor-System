@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionHeader from "./SectionHeader";
 import DataTable from "./DataTable";
 import { FaExclamationTriangle } from "react-icons/fa";
+import url from "../../url";
 
 const alertColumns = [
   { header: "Time", accessor: "time" },
@@ -13,7 +14,7 @@ export default function AlertsSection() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/alerts")
+    fetch(`${url}/api/alerts`)
       .then((res) => res.json())
       .then((data) => {
         setAlerts(data);

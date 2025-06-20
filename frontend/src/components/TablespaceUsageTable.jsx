@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SectionHeader from "./SectionHeader";
 import DataTable from "./DataTable";
 import { exportToCSV } from "../utils/exportCsv";
+import url from "../../url";
 
 const tablespaceColumns = [
   { header: "Name", accessor: "name" },
@@ -19,7 +20,7 @@ export default function TablespaceUsageTable() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/tablespaces")
+    fetch(`${url}/api/tablespaces`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch tablespace data");
         return res.json();

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import SectionHeader from "./SectionHeader";
 import DataTable from "./DataTable";
 import { exportToCSV } from "../utils/exportCsv";
-
+import url from "../../url";
 export default function LargestTablesTable() {
   const [largestTables, setLargestTables] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/largest-tables")
+    fetch(`${url}/api/largest-tables`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch largest tables");
         return res.json();
